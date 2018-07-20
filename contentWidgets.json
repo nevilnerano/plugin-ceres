@@ -714,5 +714,42 @@
 				"options": {}
 			}
 		}
+	},
+	{
+		"identifier": "Ceres::FooterWidget",
+		"label": "Widget.footerLabel",
+		"previewImageURL": "/images/widgets/grid-2-col.png",
+		"type": "structure",
+		"allowedNestingTypes": [
+			"footerWidget"
+		],
+		"widgetClass": "Ceres\\Widgets\\PageDesign\\Footer\\FooterWidget",
+		"settings": {
+			"layout": {
+				"type": "selectBox",
+				"required": true,
+				"label": "-",
+				"options": {
+				}
+			}
+		}
+	},
+	{
+		"identifier": "Ceres::FooterCopyrightWidget",
+		"label": "copyright",
+		"previewImageURL": "/images/widgets/grid-2-col.png",
+		"type": "footerWidget",
+		"widgetClass": "Ceres\\Widgets\\PageDesign\\Footer\\Partials\\FooterCopyrightWidget",
+		"settings": {
+			"text": {
+				"type": "inputText",
+				"required": false,
+				"label": "copyright",
+				"options": {
+					"tooltip": "copyright",
+					"defaultValue": "test"
+				}
+			}
+		}
 	}
 ]
