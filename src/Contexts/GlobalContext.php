@@ -2,6 +2,7 @@
 
 namespace Ceres\Contexts;
 
+use Ceres\Helper\NavigationTreeBuilder;
 use IO\Helper\ContextInterface;
 use IO\Services\CustomerService;
 use IO\Services\ItemLastSeenService;
@@ -33,6 +34,7 @@ class GlobalContext implements ContextInterface
     public $templateName;
     public $categories;
     public $categoryBreadcrumbs;
+    public $navigationTree;
     public $notifications;
     public $basket;
     public $webstoreConfig;
@@ -93,6 +95,10 @@ class GlobalContext implements ContextInterface
         }
 
         $this->categories = $categoryService->getNavigationTree($this->ceresConfig->header->showCategoryTypes, $this->lang, 6, $customerService->getContactClassId());
+        $this->navigationTree = pluginApp(NavigationTreeBuilder::class)->prepareNavigationTree(
+            $this->ceresConfig->header->showCategoryTypes
+        );
+
         $this->notifications = pluginApp(NotificationService::class)->getNotifications();
 
         $this->basket = $basketService->getBasketForTemplate();
